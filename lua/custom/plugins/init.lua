@@ -4,4 +4,9 @@
 -- See the kickstart.nvim README for more information
 return {
   'm4xshen/autoclose.nvim',
+  {
+    'luckasRanarison/tailwind-tools.nvim',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    opts = {}, -- your configuration
+  },
 }
