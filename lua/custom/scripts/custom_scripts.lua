@@ -22,7 +22,7 @@ function FormatTable()
   f:close()
 
   -- Execute the script/command and capture its output
-  local command = string.format("cat '%s' | python3 ~/.scripts/table_formater.py", tmpfile)
+  local command = string.format("cat '%s' | python3 ~/.config/nvim/scripts/python_scripts/table_formater.py", tmpfile)
 
   -- Execute the command and capture its output
   local output = vim.fn.system(command)
