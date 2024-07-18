@@ -3,7 +3,6 @@ import sys
 def adjust_table(table):
     # Determine the maximum length of entries in each column
     max_lengths = [max(len(str(item)) for item in col) for col in zip(*table)]
-    max_lengths[1] = max_lengths[1] - 1
 
     # Adjust each entry to match the maximum length
     adjusted_table = []
@@ -14,9 +13,9 @@ def adjust_table(table):
                 item = item.rstrip("|")
                 if "---" in str(item):
                     item = item.rstrip(" ")
-                    adjusted_row.append(str(item).ljust(max_lengths[i] - 1, "-") + " |")
+                    adjusted_row.append(str(item).ljust(max_lengths[i] - 2, "-") + " |")
                     continue
-                adjusted_row.append(str(item).ljust(max_lengths[i]) + "|")
+                adjusted_row.append(str(item).ljust(max_lengths[i] -1 ) + "|")
                 continue
 
             if "---" in str(item):
