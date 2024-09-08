@@ -634,6 +634,23 @@ require('lazy').setup({
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
       {
+        'zbirenbaum/copilot-cmp',
+        dependencies = 'copilot.lua',
+        opts = {},
+        config = function(_, opts)
+          local copilot_cmp = require 'copilot_cmp'
+          copilot_cmp.setup(opts)
+        end,
+      },
+
+      opts = function(_, opts)
+        local cmp = require 'cmp'
+        opts.sources = cmp.config.sources(vim.list_extend(opts.sources, {
+          { name = 'copilot', group_index = 2 },
+        }))
+      end,
+
+      {
         'L3MON4D3/LuaSnip',
         build = (function()
           -- Build Step is needed for regex support in snippets

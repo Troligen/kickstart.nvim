@@ -9,4 +9,13 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     opts = {}, -- your configuration
   },
+  {
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    build = ':Copilot auth',
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+    },
+  },
 }
